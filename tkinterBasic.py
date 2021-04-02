@@ -5,8 +5,8 @@ from tkinter.ttk import Combobox
 import tkinter
 
 from numpy.lib.polynomial import roots
-from traceReaderK9Data import readTraceAndParse as readTrace
-from KMEANSf1 import runKmeansAndCluster
+from GemTraceReader import readTraceAndParse as readTrace
+from KMEANSf2Version import runKmeansAndCluster
 
 def main():
     root = Tk()
@@ -29,7 +29,7 @@ def main():
                 root.listOfLocalFeature = listOfWordsFeature
                 lenData = listFeature
                 if(listFeature):
-                    tkinter.messagebox.showinfo("Done Prediction", "see The feature")
+                    tkinter.messagebox.showinfo("Done Finding", "see The feature")
                     print(listFeature)
                     comboboxUpdate(listFeature)
         else:
@@ -61,6 +61,8 @@ def main():
             item = str(i) +". " + item
             featureWordListBox.insert(END,item)
             i= i+1
+            if(i == 6):
+                break
 
     
     def comboboxUpdate(data):
@@ -72,7 +74,7 @@ def main():
     b_chooseFile.width = 100
 
 
-    predictButton = Button(root, text = "Predict", width = 20, height = 3, command = predictFeature)
+    predictButton = Button(root, text = "Find Feature", width = 20, height = 3, command = predictFeature)
     predictButton.place(x=100, y=150)
     predictButton.width = 100
 
@@ -96,7 +98,7 @@ def main():
     # combo.pack()
 
     # Combo button
-    comboButton = Button(root, text ='See Predicted Feature', command = comboButtonCommand)
+    comboButton = Button(root, text ='See Feature', command = comboButtonCommand)
     # comboButton.pack(pady=10)
     comboButton.place(x=100, y= 300)
     # comboButton.pack()
