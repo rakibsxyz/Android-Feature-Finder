@@ -83,7 +83,7 @@ def writeCsv(segments):
 # with open("traceTooSmall") as f:
 # with open("traceSmall") as f:
 def openTraceFileAndExecute(fileName):
-    with open(fileName) as f:
+    with open(fileName, encoding="utf8") as f:
         lines = f.readlines()
         print(len(lines))
 
